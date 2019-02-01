@@ -20,7 +20,12 @@ public class Recursion{
     return sqrthelper(n,(n/guess+guess)/2,tolerance);
   }
 public static int fib(int n){
-return 4;
+  if (n<=1) return n;
+  return helperfib(1,1,1,n);
+}
+public static int helperfib(int first,int second,int index,int n){
+  if (index==n) return first;
+  return helperfib(second,first+second,index+1,n);
 }
   public static void main(String[] args){
     double r = .001;
@@ -30,5 +35,10 @@ return 4;
     System.out.println(sqrt(81,r));
     System.out.println(sqrt(0,r));
     System.out.println(sqrt (4010120,r));
+    System.out.println("-----\n testing fib: ");
+    System.out.println(fib(1));
+    System.out.println(fib(5));
+    System.out.println(fib(49));
+
   }
 }
