@@ -33,15 +33,17 @@ public static int helperfib(int first,int second,int n){
 }
 public static ArrayList<Integer> makeAllSums(int n){
   ArrayList<Integer> returner = new ArrayList<Integer>();
-  sumsHelper(n,1,1,returner);
+  sumsHelper(n,1,0,returner);
   return returner;
 }
 public static boolean sumsHelper(int n, int current, int partial, ArrayList<Integer> returner){
-  if (current==n) {
-    System.out.println(partial);
-    returner.add(partial);}
-//  if (returner.size()==Math.pow(2,n)) return true;
-  return sumsHelper(n, current+1, partial+current, returner)|| sumsHelper(n,current+1,partial,returner);
+  //  if ((partial==1 || partial==n*2) && current==n) return true;
+    //if (!returner.contains(partial)) returner.add(partial);
+  if (current>n) {
+    returner.add(partial);
+  return false;}
+  //if (returner.size()==Math.pow(2,n)) return true;
+  return sumsHelper(n, current+1, partial+current, returner) || sumsHelper(n,current+1,partial,returner);
 }
   public static void main(String[] args){
     double r = .001;
