@@ -25,11 +25,11 @@ public class Recursion{
 public static int fib(int n){
   if (n==0) return 0;
   if (n==1) return 1;
-  return helperfib(1,1,n);
+  return helperfib(1,1,n);//linear
 }
 public static int helperfib(int first,int second,int n){
   if (1==n) return first;
-  return helperfib(second,first+second,n-1);
+  return helperfib(second,first+second,n-1);//moves down the list
 }
 public static ArrayList<Integer> makeAllSums(int n){
   ArrayList<Integer> returner = new ArrayList<Integer>();
@@ -37,16 +37,14 @@ public static ArrayList<Integer> makeAllSums(int n){
   return returner;
 }
 public static boolean sumsHelper(int n, int current, int partial, ArrayList<Integer> returner){
-  //  if ((partial==1 || partial==n*2) && current==n) return true;
-    //if (!returner.contains(partial)) returner.add(partial);
-  if (current>n) {
+  if (current>n) {//stops once it's moved to the end of the row
     returner.add(partial);
   return false;}
-  //if (returner.size()==Math.pow(2,n)) return true;
   return sumsHelper(n, current+1, partial+current, returner) || sumsHelper(n,current+1,partial,returner);
 }
   public static void main(String[] args){
     double r = .001;
+    System.out.println("-----\n testing square root: ");
     System.out.println(sqrtreg(100));
     System.out.println(sqrt(100,r));
     System.out.println(sqrt(2,r));
@@ -62,6 +60,9 @@ public static boolean sumsHelper(int n, int current, int partial, ArrayList<Inte
     System.out.println(fib(48));
     System.out.println(fib(49));
     System.out.println("-----\n testing makeallsums: ");
-    System.out.println(makeAllSums(3));
+    System.out.println("makeAllSums(3)"+makeAllSums(3));
+    System.out.println("makeAllSums(2)"+makeAllSums(2));
+    System.out.println("makeAllSums(20)"+makeAllSums(20)+"size is: " + makeAllSums(20).size());
+
   }
 }
