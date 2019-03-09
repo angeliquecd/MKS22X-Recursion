@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Math;
-public class Recursion{
+public class recursion{
   public static double sqrtreg(double n){//uses loop
     if (n==0) return 0;
     double guess= 1.0;
